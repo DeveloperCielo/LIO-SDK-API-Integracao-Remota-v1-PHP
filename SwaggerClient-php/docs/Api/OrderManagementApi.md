@@ -1,6 +1,6 @@
 # Swagger\Client\OrderManagementApi
 
-All URIs are relative to *https://api.cielo.com.br/order-management/v1*
+All URIs are relative to *https://api.cielo.com.br/sandbox-lio/order-management/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,6 +27,19 @@ Recurso responsável por efetuar a inclusão de um novo item em um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -60,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -80,6 +93,19 @@ Recurso responsável por efetuar a criação de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -111,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -131,6 +157,19 @@ Recurso responsável por efetuar a exclusão de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -161,7 +200,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -181,6 +220,19 @@ Recurso responsável por efetuar a exclusão de um item de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -214,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -234,6 +286,19 @@ Recurso responsável por efetuar a consulta de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -265,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -285,6 +350,19 @@ Recurso responsável por efetuar a consulta de pedidos, com a possibilidade de a
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -315,7 +393,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -335,6 +413,19 @@ Recurso responsável por efetuar a consulta de um item em um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -366,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -386,6 +477,19 @@ Recurso responsável por efetuar a consulta das transações de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -417,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -437,6 +541,19 @@ Recurso responsável por efetuar o cancelamento de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -469,7 +586,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 
@@ -489,6 +606,19 @@ Recurso responsável por efetuar a alteração de um item de um pedido.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
+// Configure API key authorization: access-token
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('access-token', 'Bearer');
+// Configure API key authorization: client-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -524,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../../README.md#merchant-id), [access-token](../../README.md#access-token), [client-id](../../README.md#client-id)
 
 ### HTTP request headers
 

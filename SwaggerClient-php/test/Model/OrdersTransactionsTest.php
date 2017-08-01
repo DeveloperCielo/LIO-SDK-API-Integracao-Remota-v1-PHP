@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentProductTest
+ * OrdersTransactionsTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * PaymentProductTest Class Doc Comment
+ * OrdersTransactionsTest Class Doc Comment
  *
  * @category    Class */
-// * @description Informações sobre o produto de pagamento utilizado.
+// * @description OrdersTransactions
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PaymentProductTest extends \PHPUnit_Framework_TestCase
+class OrdersTransactionsTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,9 +71,51 @@ class PaymentProductTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PaymentProduct"
+     * Test "OrdersTransactions"
      */
-    public function testPaymentProduct()
+    public function testOrdersTransactions()
+    {
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "transaction_type"
+     */
+    public function testPropertyTransactionType()
+    {
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "terminal_number"
+     */
+    public function testPropertyTerminalNumber()
+    {
+    }
+
+    /**
+     * Test attribute "card"
+     */
+    public function testPropertyCard()
     {
     }
 
@@ -85,16 +127,37 @@ class PaymentProductTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "authorization_code"
      */
-    public function testPropertyName()
+    public function testPropertyAuthorizationCode()
     {
     }
 
     /**
-     * Test attribute "sub"
+     * Test attribute "payment_product"
      */
-    public function testPropertySub()
+    public function testPropertyPaymentProduct()
+    {
+    }
+
+    /**
+     * Test attribute "amount"
+     */
+    public function testPropertyAmount()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
     {
     }
 }

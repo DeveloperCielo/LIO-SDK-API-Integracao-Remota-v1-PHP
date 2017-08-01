@@ -1,6 +1,6 @@
 <?php
 /**
- * CardTest
+ * Body1Test
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * CardTest Class Doc Comment
+ * Body1Test Class Doc Comment
  *
  * @category    Class */
-// * @description Informações sobre o cartão utilizado na transação.
+// * @description Body1
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CardTest extends \PHPUnit_Framework_TestCase
+class Body1Test extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,79 @@ class CardTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Card"
+     * Test "Body1"
      */
-    public function testCard()
+    public function testBody1()
     {
     }
 
     /**
-     * Test attribute "brand"
+     * Test attribute "sku"
      */
-    public function testPropertyBrand()
+    public function testPropertySku()
     {
     }
 
     /**
-     * Test attribute "bin"
+     * Test attribute "sku_type"
      */
-    public function testPropertyBin()
+    public function testPropertySkuType()
     {
     }
 
     /**
-     * Test attribute "last"
+     * Test attribute "name"
      */
-    public function testPropertyLast()
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "unit_price"
+     */
+    public function testPropertyUnitPrice()
+    {
+    }
+
+    /**
+     * Test attribute "quantity"
+     */
+    public function testPropertyQuantity()
+    {
+    }
+
+    /**
+     * Test attribute "unit_of_measure"
+     */
+    public function testPropertyUnitOfMeasure()
+    {
+    }
+
+    /**
+     * Test attribute "details"
+     */
+    public function testPropertyDetails()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
     {
     }
 }

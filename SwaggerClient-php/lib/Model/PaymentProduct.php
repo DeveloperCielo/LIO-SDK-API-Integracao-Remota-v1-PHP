@@ -57,12 +57,27 @@ class PaymentProduct implements ArrayAccess
     protected static $swaggerTypes = [
         'number' => 'int',
         'name' => 'string',
-        'sub' => '\Swagger\Client\Model\SubPaymentProduct'
+        'sub' => '\Swagger\Client\Model\OrdersPaymentProductSub'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'number' => null,
+        'name' => null,
+        'sub' => null
     ];
 
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -148,9 +163,6 @@ class PaymentProduct implements ArrayAccess
         if ($this->container['name'] === null) {
             $invalid_properties[] = "'name' can't be null";
         }
-        if ($this->container['sub'] === null) {
-            $invalid_properties[] = "'sub' can't be null";
-        }
         return $invalid_properties;
     }
 
@@ -167,9 +179,6 @@ class PaymentProduct implements ArrayAccess
             return false;
         }
         if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['sub'] === null) {
             return false;
         }
         return true;
@@ -220,7 +229,7 @@ class PaymentProduct implements ArrayAccess
 
     /**
      * Gets sub
-     * @return \Swagger\Client\Model\SubPaymentProduct
+     * @return \Swagger\Client\Model\OrdersPaymentProductSub
      */
     public function getSub()
     {
@@ -229,7 +238,7 @@ class PaymentProduct implements ArrayAccess
 
     /**
      * Sets sub
-     * @param \Swagger\Client\Model\SubPaymentProduct $sub
+     * @param \Swagger\Client\Model\OrdersPaymentProductSub $sub
      * @return $this
      */
     public function setSub($sub)

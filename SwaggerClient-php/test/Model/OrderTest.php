@@ -47,7 +47,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -55,7 +54,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -63,7 +61,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -71,7 +68,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -79,7 +75,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrder()
     {
-
     }
 
     /**
@@ -87,7 +82,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyId()
     {
-
     }
 
     /**
@@ -95,7 +89,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyNumber()
     {
-
     }
 
     /**
@@ -103,7 +96,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyReference()
     {
-
     }
 
     /**
@@ -111,7 +103,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyStatus()
     {
-
     }
 
     /**
@@ -119,7 +110,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyCreatedAt()
     {
-
     }
 
     /**
@@ -127,7 +117,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyUpdatedAt()
     {
-
     }
 
     /**
@@ -135,7 +124,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyItems()
     {
-
     }
 
     /**
@@ -143,7 +131,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyNotes()
     {
-
     }
 
     /**
@@ -151,7 +138,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyTransactions()
     {
-
     }
 
     /**
@@ -159,7 +145,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyPrice()
     {
-
     }
 
     /**
@@ -167,7 +152,5 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testPropertyRemaining()
     {
-
     }
-
 }

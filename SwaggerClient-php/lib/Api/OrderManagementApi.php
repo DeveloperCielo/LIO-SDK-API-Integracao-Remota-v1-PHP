@@ -90,15 +90,13 @@ class OrderManagementApi
     /**
      * Operation orderAddItem
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
-     * @param \Swagger\Client\Model\OrderItem $body  (required)
+     * @param \Swagger\Client\Model\Body1 $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Response
+     * @return \Swagger\Client\Model\InlineResponse201
      */
     public function orderAddItem($client_id, $access_token, $merchant_id, $id, $body)
     {
@@ -109,15 +107,13 @@ class OrderManagementApi
     /**
      * Operation orderAddItemWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
-     * @param \Swagger\Client\Model\OrderItem $body  (required)
+     * @param \Swagger\Client\Model\Body1 $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderAddItemWithHttpInfo($client_id, $access_token, $merchant_id, $id, $body)
     {
@@ -173,9 +169,6 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -189,11 +182,6 @@ class OrderManagementApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
         if (strlen($apiKey) !== 0) {
             $headerParams['access-token'] = $apiKey;
@@ -203,6 +191,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -211,27 +204,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Response',
+                '\Swagger\Client\Model\InlineResponse201',
                 '/orders/{id}/items'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Response', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse201', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Response', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse201', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 422:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -243,14 +236,12 @@ class OrderManagementApi
     /**
      * Operation orderCreate
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
-     * @param \Swagger\Client\Model\Order $body  (required)
+     * @param \Swagger\Client\Model\Body $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Response
+     * @return \Swagger\Client\Model\InlineResponse201
      */
     public function orderCreate($client_id, $access_token, $merchant_id, $body)
     {
@@ -261,14 +252,12 @@ class OrderManagementApi
     /**
      * Operation orderCreateWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
-     * @param \Swagger\Client\Model\Order $body  (required)
+     * @param \Swagger\Client\Model\Body $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderCreateWithHttpInfo($client_id, $access_token, $merchant_id, $body)
     {
@@ -312,9 +301,6 @@ class OrderManagementApi
         if ($merchant_id !== null) {
             $headerParams['merchant-id'] = $this->apiClient->getSerializer()->toHeaderValue($merchant_id);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -328,11 +314,6 @@ class OrderManagementApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
         if (strlen($apiKey) !== 0) {
             $headerParams['access-token'] = $apiKey;
@@ -342,6 +323,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -350,27 +336,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Response',
+                '\Swagger\Client\Model\InlineResponse201',
                 '/orders'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Response', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse201', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Response', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse201', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 422:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -381,8 +367,6 @@ class OrderManagementApi
 
     /**
      * Operation orderDelete
-     *
-     * 
      *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
@@ -399,8 +383,6 @@ class OrderManagementApi
 
     /**
      * Operation orderDeleteWithHttpInfo
-     *
-     * 
      *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
@@ -459,20 +441,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -483,6 +457,11 @@ class OrderManagementApi
         $apiKey = $this->apiClient->getApiKeyWithPrefix('client-id');
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
         }
         // make the API Call
         try {
@@ -500,11 +479,11 @@ class OrderManagementApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -516,15 +495,13 @@ class OrderManagementApi
     /**
      * Operation orderDeleteItem
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @param string $item_id Identificador do item do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Response
+     * @return \Swagger\Client\Model\InlineResponse201
      */
     public function orderDeleteItem($client_id, $access_token, $merchant_id, $id, $item_id)
     {
@@ -535,15 +512,13 @@ class OrderManagementApi
     /**
      * Operation orderDeleteItemWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @param string $item_id Identificador do item do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderDeleteItemWithHttpInfo($client_id, $access_token, $merchant_id, $id, $item_id)
     {
@@ -607,20 +582,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -632,6 +599,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -640,27 +612,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Response',
+                '\Swagger\Client\Model\InlineResponse201',
                 '/orders/{id}/items/{itemId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Response', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse201', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Response', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse201', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 422:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -672,14 +644,12 @@ class OrderManagementApi
     /**
      * Operation orderGet
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Order
+     * @return \Swagger\Client\Model\InlineResponse200
      */
     public function orderGet($client_id, $access_token, $merchant_id, $id)
     {
@@ -690,14 +660,12 @@ class OrderManagementApi
     /**
      * Operation orderGetWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Order, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderGetWithHttpInfo($client_id, $access_token, $merchant_id, $id)
     {
@@ -749,20 +717,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -774,6 +734,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -782,27 +747,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Order',
+                '\Swagger\Client\Model\InlineResponse200',
                 '/orders/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Order', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Order', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -814,14 +779,12 @@ class OrderManagementApi
     /**
      * Operation orderGetByParameters
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $parameters Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED). (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return void
+     * @return \Swagger\Client\Model\InlineResponse200[]
      */
     public function orderGetByParameters($client_id, $access_token, $merchant_id, $parameters)
     {
@@ -832,14 +795,12 @@ class OrderManagementApi
     /**
      * Operation orderGetByParametersWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $parameters Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED). (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse200[], HTTP status code, HTTP response headers (array of strings)
      */
     public function orderGetByParametersWithHttpInfo($client_id, $access_token, $merchant_id, $parameters)
     {
@@ -887,20 +848,12 @@ class OrderManagementApi
         if ($merchant_id !== null) {
             $headerParams['merchant-id'] = $this->apiClient->getSerializer()->toHeaderValue($merchant_id);
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -912,6 +865,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -920,23 +878,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                null,
+                '\Swagger\Client\Model\InlineResponse200[]',
                 '/orders'
             );
 
-            return [null, $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse200[]', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse200[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -948,14 +910,12 @@ class OrderManagementApi
     /**
      * Operation orderGetItem
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\OrderItem
+     * @return \Swagger\Client\Model\OrdersItems
      */
     public function orderGetItem($client_id, $access_token, $merchant_id, $id)
     {
@@ -966,14 +926,12 @@ class OrderManagementApi
     /**
      * Operation orderGetItemWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\OrderItem, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\OrdersItems, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderGetItemWithHttpInfo($client_id, $access_token, $merchant_id, $id)
     {
@@ -1025,20 +983,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -1050,6 +1000,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -1058,23 +1013,23 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\OrderItem',
+                '\Swagger\Client\Model\OrdersItems',
                 '/orders/{id}/items'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\OrderItem', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\OrdersItems', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\OrderItem', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\OrdersItems', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1086,14 +1041,12 @@ class OrderManagementApi
     /**
      * Operation orderGetTransactions
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Transaction
+     * @return \Swagger\Client\Model\OrdersTransactions
      */
     public function orderGetTransactions($client_id, $access_token, $merchant_id, $id)
     {
@@ -1104,14 +1057,12 @@ class OrderManagementApi
     /**
      * Operation orderGetTransactionsWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Transaction, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\OrdersTransactions, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderGetTransactionsWithHttpInfo($client_id, $access_token, $merchant_id, $id)
     {
@@ -1163,20 +1114,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -1188,6 +1131,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -1196,23 +1144,23 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Transaction',
+                '\Swagger\Client\Model\OrdersTransactions',
                 '/orders/{id}/transactions'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Transaction', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\OrdersTransactions', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Transaction', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\OrdersTransactions', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1223,8 +1171,6 @@ class OrderManagementApi
 
     /**
      * Operation orderUpdate
-     *
-     * 
      *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
@@ -1242,8 +1188,6 @@ class OrderManagementApi
 
     /**
      * Operation orderUpdateWithHttpInfo
-     *
-     * 
      *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
@@ -1311,20 +1255,12 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
@@ -1335,6 +1271,11 @@ class OrderManagementApi
         $apiKey = $this->apiClient->getApiKeyWithPrefix('client-id');
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
         }
         // make the API Call
         try {
@@ -1352,19 +1293,19 @@ class OrderManagementApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1376,16 +1317,14 @@ class OrderManagementApi
     /**
      * Operation orderUpdateItem
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @param string $item_id Identificador do item do pedido. (required)
-     * @param \Swagger\Client\Model\OrderItem $body  (required)
+     * @param \Swagger\Client\Model\Body2 $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\Response
+     * @return \Swagger\Client\Model\InlineResponse201
      */
     public function orderUpdateItem($client_id, $access_token, $merchant_id, $id, $item_id, $body)
     {
@@ -1396,16 +1335,14 @@ class OrderManagementApi
     /**
      * Operation orderUpdateItemWithHttpInfo
      *
-     * 
-     *
      * @param string $client_id Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
      * @param string $access_token Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param string $merchant_id Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param string $id Identificador do pedido. (required)
      * @param string $item_id Identificador do item do pedido. (required)
-     * @param \Swagger\Client\Model\OrderItem $body  (required)
+     * @param \Swagger\Client\Model\Body2 $body  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderUpdateItemWithHttpInfo($client_id, $access_token, $merchant_id, $id, $item_id, $body)
     {
@@ -1473,9 +1410,6 @@ class OrderManagementApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
         // body params
         $_tempBody = null;
         if (isset($body)) {
@@ -1489,11 +1423,6 @@ class OrderManagementApi
             $httpBody = $formParams; // for HTTP post (form)
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['merchant-id'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('access-token');
         if (strlen($apiKey) !== 0) {
             $headerParams['access-token'] = $apiKey;
@@ -1503,6 +1432,11 @@ class OrderManagementApi
         if (strlen($apiKey) !== 0) {
             $headerParams['client-id'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('merchant-id');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['merchant-id'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -1511,27 +1445,27 @@ class OrderManagementApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\Response',
+                '\Swagger\Client\Model\InlineResponse201',
                 '/orders/{id}/items/{itemId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\Response', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\InlineResponse201', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Response', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse201', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 422:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse401', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

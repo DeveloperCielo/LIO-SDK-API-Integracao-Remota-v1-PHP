@@ -1,6 +1,6 @@
 <?php
 /**
- * Response
+ * InlineResponse401
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * Response Class Doc Comment
+ * InlineResponse401 Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Response implements ArrayAccess
+class InlineResponse401 implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +47,15 @@ class Response implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Response';
+    protected static $swaggerModelName = 'inline_response_401';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'code' => 'string',
+        'detail' => 'string'
     ];
 
     /**
@@ -62,7 +63,8 @@ class Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'code' => null,
+        'detail' => null
     ];
 
     public static function swaggerTypes()
@@ -80,7 +82,8 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'code' => 'code',
+        'detail' => 'detail'
     ];
 
 
@@ -89,7 +92,8 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'code' => 'setCode',
+        'detail' => 'setDetail'
     ];
 
 
@@ -98,7 +102,8 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'code' => 'getCode',
+        'detail' => 'getDetail'
     ];
 
     public static function attributeMap()
@@ -132,7 +137,8 @@ class Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['detail'] = isset($data['detail']) ? $data['detail'] : null;
     }
 
     /**
@@ -161,22 +167,43 @@ class Response implements ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets code
      * @return string
      */
-    public function getId()
+    public function getCode()
     {
-        return $this->container['id'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets id
-     * @param string $id Identificador do pedido.
+     * Sets code
+     * @param string $code Código de erro da aplicação.
      * @return $this
      */
-    public function setId($id)
+    public function setCode($code)
     {
-        $this->container['id'] = $id;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     * @param string $detail Detalhe do erro da aplicação.
+     * @return $this
+     */
+    public function setDetail($detail)
+    {
+        $this->container['detail'] = $detail;
 
         return $this;
     }

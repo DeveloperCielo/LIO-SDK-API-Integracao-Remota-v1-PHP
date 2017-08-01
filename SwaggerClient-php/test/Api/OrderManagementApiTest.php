@@ -49,7 +49,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-
     }
 
     /**
@@ -57,7 +56,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
     }
 
     /**
@@ -65,7 +63,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -73,7 +70,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
-
     }
 
     /**
@@ -84,7 +80,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderAddItem()
     {
-
     }
 
     /**
@@ -95,7 +90,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderCreate()
     {
-
     }
 
     /**
@@ -106,7 +100,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderDelete()
     {
-
     }
 
     /**
@@ -117,7 +110,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderDeleteItem()
     {
-
     }
 
     /**
@@ -128,7 +120,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderGet()
     {
-
     }
 
     /**
@@ -139,7 +130,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderGetByParameters()
     {
-
     }
 
     /**
@@ -150,7 +140,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderGetItem()
     {
-
     }
 
     /**
@@ -161,7 +150,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderGetTransactions()
     {
-
     }
 
     /**
@@ -172,7 +160,6 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderUpdate()
     {
-
     }
 
     /**
@@ -183,7 +170,5 @@ class OrderManagementApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testOrderUpdateItem()
     {
-
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderItem
+ * OrdersItems
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * OrderItem Class Doc Comment
+ * OrdersItems Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderItem implements ArrayAccess
+class OrdersItems implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class OrderItem implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'OrderItem';
+    protected static $swaggerModelName = 'orders_items';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

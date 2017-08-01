@@ -1,6 +1,6 @@
 <?php
 /**
- * Response
+ * OrdersCard
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * Response Class Doc Comment
+ * OrdersCard Class Doc Comment
  *
  * @category    Class
+ * @description Informações sobre o cartão utilizado na transação.
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Response implements ArrayAccess
+class OrdersCard implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +48,16 @@ class Response implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Response';
+    protected static $swaggerModelName = 'orders_card';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'brand' => 'string',
+        'bin' => 'int',
+        'last' => 'int'
     ];
 
     /**
@@ -62,7 +65,9 @@ class Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'brand' => null,
+        'bin' => null,
+        'last' => null
     ];
 
     public static function swaggerTypes()
@@ -80,7 +85,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'brand' => 'brand',
+        'bin' => 'bin',
+        'last' => 'last'
     ];
 
 
@@ -89,7 +96,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'brand' => 'setBrand',
+        'bin' => 'setBin',
+        'last' => 'setLast'
     ];
 
 
@@ -98,7 +107,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'brand' => 'getBrand',
+        'bin' => 'getBin',
+        'last' => 'getLast'
     ];
 
     public static function attributeMap()
@@ -116,8 +127,30 @@ class Response implements ArrayAccess
         return self::$getters;
     }
 
+    const BRAND_VISA = 'VISA';
+    const BRAND_MASTERCARD = 'MASTERCARD';
+    const BRAND_ELO = 'ELO';
+    const BRAND_DINERS = 'DINERS';
+    const BRAND_AMEX = 'AMEX';
+    const BRAND_AURA = 'AURA';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getBrandAllowableValues()
+    {
+        return [
+            self::BRAND_VISA,
+            self::BRAND_MASTERCARD,
+            self::BRAND_ELO,
+            self::BRAND_DINERS,
+            self::BRAND_AMEX,
+            self::BRAND_AURA,
+        ];
+    }
     
 
     /**
@@ -132,7 +165,9 @@ class Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['bin'] = isset($data['bin']) ? $data['bin'] : null;
+        $this->container['last'] = isset($data['last']) ? $data['last'] : null;
     }
 
     /**
@@ -144,6 +179,23 @@ class Response implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['brand'] === null) {
+            $invalid_properties[] = "'brand' can't be null";
+        }
+        $allowed_values = $this->getBrandAllowableValues();
+        if (!in_array($this->container['brand'], $allowed_values)) {
+            $invalid_properties[] = sprintf(
+                "invalid value for 'brand', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
+        }
+
+        if ($this->container['bin'] === null) {
+            $invalid_properties[] = "'bin' can't be null";
+        }
+        if ($this->container['last'] === null) {
+            $invalid_properties[] = "'last' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -156,27 +208,91 @@ class Response implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['brand'] === null) {
+            return false;
+        }
+        $allowed_values = $this->getBrandAllowableValues();
+        if (!in_array($this->container['brand'], $allowed_values)) {
+            return false;
+        }
+        if ($this->container['bin'] === null) {
+            return false;
+        }
+        if ($this->container['last'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets id
+     * Gets brand
      * @return string
      */
-    public function getId()
+    public function getBrand()
     {
-        return $this->container['id'];
+        return $this->container['brand'];
     }
 
     /**
-     * Sets id
-     * @param string $id Identificador do pedido.
+     * Sets brand
+     * @param string $brand Bandeira do cartão.
      * @return $this
      */
-    public function setId($id)
+    public function setBrand($brand)
     {
-        $this->container['id'] = $id;
+        $allowed_values = $this->getBrandAllowableValues();
+        if (!in_array($brand, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'brand', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
+        }
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets bin
+     * @return int
+     */
+    public function getBin()
+    {
+        return $this->container['bin'];
+    }
+
+    /**
+     * Sets bin
+     * @param int $bin Bin (primeiros 6 dígitos) do cartão.
+     * @return $this
+     */
+    public function setBin($bin)
+    {
+        $this->container['bin'] = $bin;
+
+        return $this;
+    }
+
+    /**
+     * Gets last
+     * @return int
+     */
+    public function getLast()
+    {
+        return $this->container['last'];
+    }
+
+    /**
+     * Sets last
+     * @param int $last Last (últimos 4 dígitos) do cartão.
+     * @return $this
+     */
+    public function setLast($last)
+    {
+        $this->container['last'] = $last;
 
         return $this;
     }

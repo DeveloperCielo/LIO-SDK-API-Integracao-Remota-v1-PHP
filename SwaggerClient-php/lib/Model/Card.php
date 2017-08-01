@@ -60,9 +60,24 @@ class Card implements ArrayAccess
         'last' => 'int'
     ];
 
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'brand' => null,
+        'bin' => null,
+        'last' => null
+    ];
+
     public static function swaggerTypes()
     {
         return self::$swaggerTypes;
+    }
+
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
     }
 
     /**
@@ -113,7 +128,11 @@ class Card implements ArrayAccess
     }
 
     const BRAND_VISA = 'VISA';
-    const BRAND_MASTER = 'MASTER';
+    const BRAND_MASTERCARD = 'MASTERCARD';
+    const BRAND_ELO = 'ELO';
+    const BRAND_DINERS = 'DINERS';
+    const BRAND_AMEX = 'AMEX';
+    const BRAND_AURA = 'AURA';
     
 
     
@@ -125,7 +144,11 @@ class Card implements ArrayAccess
     {
         return [
             self::BRAND_VISA,
-            self::BRAND_MASTER,
+            self::BRAND_MASTERCARD,
+            self::BRAND_ELO,
+            self::BRAND_DINERS,
+            self::BRAND_AMEX,
+            self::BRAND_AURA,
         ];
     }
     
@@ -159,9 +182,12 @@ class Card implements ArrayAccess
         if ($this->container['brand'] === null) {
             $invalid_properties[] = "'brand' can't be null";
         }
-        $allowed_values = ["VISA", "MASTER"];
+        $allowed_values = $this->getBrandAllowableValues();
         if (!in_array($this->container['brand'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'brand', must be one of 'VISA', 'MASTER'.";
+            $invalid_properties[] = sprintf(
+                "invalid value for 'brand', must be one of '%s'",
+                implode("', '", $allowed_values)
+            );
         }
 
         if ($this->container['bin'] === null) {
@@ -185,7 +211,7 @@ class Card implements ArrayAccess
         if ($this->container['brand'] === null) {
             return false;
         }
-        $allowed_values = ["VISA", "MASTER"];
+        $allowed_values = $this->getBrandAllowableValues();
         if (!in_array($this->container['brand'], $allowed_values)) {
             return false;
         }
@@ -215,9 +241,14 @@ class Card implements ArrayAccess
      */
     public function setBrand($brand)
     {
-        $allowed_values = array('VISA', 'MASTER');
-        if ((!in_array($brand, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'brand', must be one of 'VISA', 'MASTER'");
+        $allowed_values = $this->getBrandAllowableValues();
+        if (!in_array($brand, $allowed_values)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'brand', must be one of '%s'",
+                    implode("', '", $allowed_values)
+                )
+            );
         }
         $this->container['brand'] = $brand;
 

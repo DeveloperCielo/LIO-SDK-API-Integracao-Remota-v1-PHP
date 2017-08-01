@@ -1,6 +1,6 @@
 <?php
 /**
- * Response
+ * OrdersPaymentProduct
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * Response Class Doc Comment
+ * OrdersPaymentProduct Class Doc Comment
  *
  * @category    Class
+ * @description Informações sobre o produto de pagamento utilizado.
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Response implements ArrayAccess
+class OrdersPaymentProduct implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +48,16 @@ class Response implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Response';
+    protected static $swaggerModelName = 'orders_payment_product';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string'
+        'number' => 'int',
+        'name' => 'string',
+        'sub' => '\Swagger\Client\Model\OrdersPaymentProductSub'
     ];
 
     /**
@@ -62,7 +65,9 @@ class Response implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null
+        'number' => null,
+        'name' => null,
+        'sub' => null
     ];
 
     public static function swaggerTypes()
@@ -80,7 +85,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'number' => 'number',
+        'name' => 'name',
+        'sub' => 'sub'
     ];
 
 
@@ -89,7 +96,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'number' => 'setNumber',
+        'name' => 'setName',
+        'sub' => 'setSub'
     ];
 
 
@@ -98,7 +107,9 @@ class Response implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'number' => 'getNumber',
+        'name' => 'getName',
+        'sub' => 'getSub'
     ];
 
     public static function attributeMap()
@@ -132,7 +143,9 @@ class Response implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['sub'] = isset($data['sub']) ? $data['sub'] : null;
     }
 
     /**
@@ -144,6 +157,12 @@ class Response implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['number'] === null) {
+            $invalid_properties[] = "'number' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalid_properties[] = "'name' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -156,27 +175,75 @@ class Response implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['number'] === null) {
+            return false;
+        }
+        if ($this->container['name'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets id
-     * @return string
+     * Gets number
+     * @return int
      */
-    public function getId()
+    public function getNumber()
     {
-        return $this->container['id'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets id
-     * @param string $id Identificador do pedido.
+     * Sets number
+     * @param int $number Identificação numérica do produto primário da Cielo.
      * @return $this
      */
-    public function setId($id)
+    public function setNumber($number)
     {
-        $this->container['id'] = $id;
+        $this->container['number'] = $number;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     * @param string $name Nome do produto primário utilizado.
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub
+     * @return \Swagger\Client\Model\OrdersPaymentProductSub
+     */
+    public function getSub()
+    {
+        return $this->container['sub'];
+    }
+
+    /**
+     * Sets sub
+     * @param \Swagger\Client\Model\OrdersPaymentProductSub $sub
+     * @return $this
+     */
+    public function setSub($sub)
+    {
+        $this->container['sub'] = $sub;
 
         return $this;
     }

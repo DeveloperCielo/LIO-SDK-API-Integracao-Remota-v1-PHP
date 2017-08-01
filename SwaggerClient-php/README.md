@@ -56,10 +56,6 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: merchant-id
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
 // Configure API key authorization: access-token
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -68,13 +64,17 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('access-token
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('client-id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('client-id', 'Bearer');
+// Configure API key authorization: merchant-id
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('merchant-id', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('merchant-id', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\OrderManagementApi();
 $client_id = "client_id_example"; // string | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 $access_token = "access_token_example"; // string | Token de acesso (Access Token) gerado durante o processo de cadastro.
 $merchant_id = "merchant_id_example"; // string | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 $id = "id_example"; // string | Identificador do pedido.
-$body = new \Swagger\Client\Model\OrderItem(); // \Swagger\Client\Model\OrderItem | 
+$body = new \Swagger\Client\Model\Body1(); // \Swagger\Client\Model\Body1 | 
 
 try {
     $result = $api_instance->orderAddItem($client_id, $access_token, $merchant_id, $id, $body);
@@ -106,10 +106,21 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Body](docs/Model/Body.md)
+ - [Body1](docs/Model/Body1.md)
+ - [Body2](docs/Model/Body2.md)
  - [Card](docs/Model/Card.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
+ - [InlineResponse200](docs/Model/InlineResponse200.md)
+ - [InlineResponse201](docs/Model/InlineResponse201.md)
+ - [InlineResponse401](docs/Model/InlineResponse401.md)
  - [Order](docs/Model/Order.md)
  - [OrderItem](docs/Model/OrderItem.md)
+ - [OrdersCard](docs/Model/OrdersCard.md)
+ - [OrdersItems](docs/Model/OrdersItems.md)
+ - [OrdersPaymentProduct](docs/Model/OrdersPaymentProduct.md)
+ - [OrdersPaymentProductSub](docs/Model/OrdersPaymentProductSub.md)
+ - [OrdersTransactions](docs/Model/OrdersTransactions.md)
  - [PaymentProduct](docs/Model/PaymentProduct.md)
  - [Response](docs/Model/Response.md)
  - [SubPaymentProduct](docs/Model/SubPaymentProduct.md)

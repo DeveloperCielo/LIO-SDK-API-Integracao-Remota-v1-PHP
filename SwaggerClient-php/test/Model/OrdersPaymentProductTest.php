@@ -1,6 +1,6 @@
 <?php
 /**
- * CardTest
+ * OrdersPaymentProductTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * CardTest Class Doc Comment
+ * OrdersPaymentProductTest Class Doc Comment
  *
  * @category    Class */
-// * @description Informações sobre o cartão utilizado na transação.
+// * @description Informações sobre o produto de pagamento utilizado.
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CardTest extends \PHPUnit_Framework_TestCase
+class OrdersPaymentProductTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,30 @@ class CardTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Card"
+     * Test "OrdersPaymentProduct"
      */
-    public function testCard()
+    public function testOrdersPaymentProduct()
     {
     }
 
     /**
-     * Test attribute "brand"
+     * Test attribute "number"
      */
-    public function testPropertyBrand()
+    public function testPropertyNumber()
     {
     }
 
     /**
-     * Test attribute "bin"
+     * Test attribute "name"
      */
-    public function testPropertyBin()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "last"
+     * Test attribute "sub"
      */
-    public function testPropertyLast()
+    public function testPropertySub()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * CardTest
+ * BodyTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * CardTest Class Doc Comment
+ * BodyTest Class Doc Comment
  *
  * @category    Class */
-// * @description Informações sobre o cartão utilizado na transação.
+// * @description Body
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CardTest extends \PHPUnit_Framework_TestCase
+class BodyTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,86 @@ class CardTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Card"
+     * Test "Body"
      */
-    public function testCard()
+    public function testBody()
     {
     }
 
     /**
-     * Test attribute "brand"
+     * Test attribute "id"
      */
-    public function testPropertyBrand()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "bin"
+     * Test attribute "number"
      */
-    public function testPropertyBin()
+    public function testPropertyNumber()
     {
     }
 
     /**
-     * Test attribute "last"
+     * Test attribute "reference"
      */
-    public function testPropertyLast()
+    public function testPropertyReference()
+    {
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "items"
+     */
+    public function testPropertyItems()
+    {
+    }
+
+    /**
+     * Test attribute "notes"
+     */
+    public function testPropertyNotes()
+    {
+    }
+
+    /**
+     * Test attribute "transactions"
+     */
+    public function testPropertyTransactions()
+    {
+    }
+
+    /**
+     * Test attribute "price"
+     */
+    public function testPropertyPrice()
+    {
+    }
+
+    /**
+     * Test attribute "remaining"
+     */
+    public function testPropertyRemaining()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * CardTest
+ * InlineResponse401Test
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * CardTest Class Doc Comment
+ * InlineResponse401Test Class Doc Comment
  *
  * @category    Class */
-// * @description Informações sobre o cartão utilizado na transação.
+// * @description InlineResponse401
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CardTest extends \PHPUnit_Framework_TestCase
+class InlineResponse401Test extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,23 @@ class CardTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Card"
+     * Test "InlineResponse401"
      */
-    public function testCard()
+    public function testInlineResponse401()
     {
     }
 
     /**
-     * Test attribute "brand"
+     * Test attribute "code"
      */
-    public function testPropertyBrand()
+    public function testPropertyCode()
     {
     }
 
     /**
-     * Test attribute "bin"
+     * Test attribute "detail"
      */
-    public function testPropertyBin()
-    {
-    }
-
-    /**
-     * Test attribute "last"
-     */
-    public function testPropertyLast()
+    public function testPropertyDetail()
     {
     }
 }
